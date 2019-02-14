@@ -1,11 +1,16 @@
 package SeriesGeneticAlgorithm;
 
+
+import java.util.Random;
+
 public class Main {
     public static void main(String[] args) {
 //        Series sr = new Series(4, 2);
 //        sr.printSeries();
 //        sr.calculateFitness();
-        Population pop = new Population(0.2, 0.3, 50, 12,2);
+        Population pop = new Population(0.2, 0.3, 50, 4,2);
+        pop.newGeneration(4);
+
     }
 }
 /*

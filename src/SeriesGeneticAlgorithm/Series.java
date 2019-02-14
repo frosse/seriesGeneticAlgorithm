@@ -15,9 +15,14 @@ public class Series implements Comparable<Series>{
     int gamesPerRound;
     double fitness;
     
-    ArrayList<Game>[] series;
+    ArrayList<Game>[] series= new ArrayList[rounds];
 
     // Alustetaan muuttujat ja lasketaan pelattavat kierrokset
+
+    //Dummy copy constructor, doesn't have anything to do...
+    public Series() {
+
+    }
 
     public Series(int teams, int amount) {
 
@@ -73,6 +78,15 @@ public class Series implements Comparable<Series>{
             }
         }
     }
+    // Copy constructor
+    public Series(Series ot) {
+        this.teams = ot.teams;
+        this.amount = ot.amount;
+        this.rounds = ot.rounds;
+        this.gamesPerRound = ot.gamesPerRound;
+        this.fitness = ot.fitness;
+        this.series = ot.series;
+    }
 
     // Tulostaa sarjataulukon konsoliin.
     // Jos joukkueita on vähemmän kuin 16 niin käytetään Liiga-joukkueiden nimiä, muuten tulostetaan vain numeroita.
@@ -113,7 +127,7 @@ public class Series implements Comparable<Series>{
             }
         }
         // 2 * gamesPerRound * rounds / 10
-        this.fitness = (2 * gamesPerRound * rounds - tempFitness)/10;
+        this.fitness = (2 * gamesPerRound * rounds - tempFitness)+10;
     }
 
     public ArrayList<Game>[] getSeries() {
