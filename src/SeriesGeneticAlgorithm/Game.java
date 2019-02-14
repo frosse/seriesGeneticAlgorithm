@@ -1,5 +1,6 @@
 package SeriesGeneticAlgorithm;
 
+// This is representing Gene in this...
 public class Game {
     int home;
     int away;
